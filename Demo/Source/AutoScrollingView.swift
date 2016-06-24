@@ -26,9 +26,8 @@ private class ASViewCell: UICollectionViewCell{
 
 //MARK: Protocols
 
-@objc public protocol AutoScrollingViewDataSource: class{
-  optional func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView)->[UIView]
-  
+public protocol AutoScrollingViewDataSource: class{
+  func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView)->[UIView]
 }
 
 @objc public protocol AutoScrollingViewDelegate: class {
@@ -48,7 +47,7 @@ private class ASViewCell: UICollectionViewCell{
   
   public weak var dataSource: AutoScrollingViewDataSource? {
     didSet {
-      if let views = dataSource?.setAutoScrollingViewDataSource?(self){
+      if let views = dataSource?.setAutoScrollingViewDataSource(self){
         dataSourceViews = views
         collectionView.reloadData()
       }
