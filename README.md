@@ -6,8 +6,9 @@ A customizable, easy to use infinite scroll view similar to the App Store banner
 
 # Usage
 
-1. Add `AutoScrollingView` to your `UIViewController`.
-2. Set `dataSource` and `delegate` (optional) 
+1: Add `AutoScrollingView` to your `UIViewController`. <br>
+2: Set `dataSource` and `delegate` (optional) 
+
 ```swift
 class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrollingViewDelegate {
   var autoScrollView: AutoScrollingView!
@@ -22,6 +23,42 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   
 }
 ```
+  3:  Conform to `AutoScrollingView` `dataSource`  
+```swift
+extension MyViewController: AutoScrollingViewDataSource{
+  func createImageViews()->[UIImageView]{
+    var array: [UIImageView] = []
+    for index in 0...3 {
+      let img = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
+      img.image = UIImage(named: "\(index)")
+      array.append(img)
+    }
+    return array
+  }
+  
+  func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView) -> [UIView] {
+    return createImageViews()
+  }
+}
+```
+4: 
+```swift
+extension MyViewController: AutoScrollingViewDelegate{
+  func autoScrollingView(autoScrollingView: AutoScrollingView, didSelectItem index: Int) {
+    print("did select")
+  }
+  
+  func autoScrollingView(autoScrollingView: AutoScrollingView, didChangeStatus status: ScrollingState) {
+    print(status.rawValue)
+  }
+  
+  func autoScrollingView(autoScrollingView: AutoScrollingView, didAutoScroll index: Int) {
+    print("auto scrolling at index ", index)
+  }
+}
+```
+
+# Protocols
 
 ### DataSource
 Return an array of `UIView's` to be used within the `ScrollView`
