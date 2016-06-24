@@ -18,16 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5he-Mg-k3n">
+                                <rect key="frame" x="117" y="310" width="180" height="168"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2w-PZ-zfX">
-                                <rect key="frame" x="20" y="391" width="59" height="30"/>
+                                <rect key="frame" x="20" y="353" width="59" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="oE1-P7-Fg7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="PLAY"/>
+                                <state key="normal" title="PLAY">
+                                    <color key="titleColor" red="0.91764706370000004" green="0.29803922770000002" blue="0.53725492949999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="startScrolling" destination="dkx-z0-nzr" eventType="touchUpInside" id="dIV-Ge-jil"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaA-Ws-j1i">
-                                <rect key="frame" x="335" y="391" width="59" height="30"/>
+                                <rect key="frame" x="335" y="353" width="59" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="PAUSE">
                                     <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,22 +44,18 @@
                                     <action selector="pauseScrolling" destination="dkx-z0-nzr" eventType="touchUpInside" id="WV9-d6-jOA"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5he-Mg-k3n">
-                                <rect key="frame" x="117" y="322" width="180" height="168"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94117647059999998" green="0.3411764706" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JaA-Ws-j1i" firstAttribute="leading" secondItem="5he-Mg-k3n" secondAttribute="trailing" constant="38" id="1vQ-HI-0wh"/>
-                            <constraint firstItem="5he-Mg-k3n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="322" id="5h7-Hp-bie"/>
-                            <constraint firstItem="B2w-PZ-zfX" firstAttribute="baseline" secondItem="JaA-Ws-j1i" secondAttribute="baseline" id="6cZ-fe-w30"/>
-                            <constraint firstItem="5he-Mg-k3n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="97" id="87y-OC-tMN"/>
-                            <constraint firstItem="5he-Mg-k3n" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="38" id="ABQ-hV-bGC"/>
-                            <constraint firstItem="5he-Mg-k3n" firstAttribute="leading" secondItem="B2w-PZ-zfX" secondAttribute="trailing" constant="38" id="NwS-ld-Ddc"/>
-                            <constraint firstItem="5he-Mg-k3n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UEA-dD-2eJ"/>
-                            <constraint firstItem="B2w-PZ-zfX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bsN-KI-Ts8"/>
-                            <constraint firstItem="JaA-Ws-j1i" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="j6T-QW-7Zg"/>
-                            <constraint firstItem="B2w-PZ-zfX" firstAttribute="centerY" secondItem="5he-Mg-k3n" secondAttribute="centerY" id="sgC-pI-JfZ"/>
+                            <constraint firstItem="JaA-Ws-j1i" firstAttribute="leading" secondItem="5he-Mg-k3n" secondAttribute="trailing" constant="38" id="7hZ-nl-WXR"/>
+                            <constraint firstItem="B2w-PZ-zfX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Ri-GT-UZu"/>
+                            <constraint firstItem="5he-Mg-k3n" firstAttribute="leading" secondItem="B2w-PZ-zfX" secondAttribute="trailing" constant="38" id="Dml-yT-gcT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5he-Mg-k3n" secondAttribute="bottom" constant="258" id="Q8S-CA-2IZ"/>
+                            <constraint firstItem="5he-Mg-k3n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WjK-5u-SJh"/>
+                            <constraint firstItem="B2w-PZ-zfX" firstAttribute="baseline" secondItem="JaA-Ws-j1i" secondAttribute="baseline" id="az9-5s-CqH"/>
+                            <constraint firstItem="5he-Mg-k3n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="310" id="cj1-w0-Vhc"/>
+                            <constraint firstItem="B2w-PZ-zfX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="e3k-9q-Qj7"/>
+                            <constraint firstItem="JaA-Ws-j1i" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ruX-iT-DaU"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

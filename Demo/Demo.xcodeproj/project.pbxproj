@@ -400,6 +400,7 @@
 				5E7A98EF1D1C8E960070CFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E7A98F01D1C8E960070CFCA /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +409,7 @@
 				5E7A98F21D1C8E960070CFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
