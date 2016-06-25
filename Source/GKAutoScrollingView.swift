@@ -47,10 +47,14 @@ public protocol GKAutoScrollingViewDataSource: class{
   
   public weak var dataSource: GKAutoScrollingViewDataSource? {
     didSet {
-      if let views = dataSource?.setAutoScrollingViewDataSource(self){
-        dataSourceViews = views
-        collectionView.reloadData()
-      }
+      setDataSource()
+    }
+  }
+  
+  private func setDataSource(){
+    if let views = dataSource?.setAutoScrollingViewDataSource(self){
+      dataSourceViews = views
+      collectionView.reloadData()
     }
   }
   
@@ -105,6 +109,13 @@ public protocol GKAutoScrollingViewDataSource: class{
   
   required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  public func reloadData(){
+    currentIndex = 0
+    let index = NSIndexPath(forItem: 0, inSection: 0)
+    collectionView.scrollToItemAtIndexPath(index, atScrollPosition: .None, animated: true)
+    setDataSource()
   }
   
   
