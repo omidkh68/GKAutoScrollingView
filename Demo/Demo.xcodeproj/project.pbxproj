@@ -13,7 +13,7 @@
 		5E7A98DB1D1C8E960070CFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A98DA1D1C8E960070CFCA /* Assets.xcassets */; };
 		5E7A98DE1D1C8E960070CFCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7A98DC1D1C8E960070CFCA /* LaunchScreen.storyboard */; };
 		5E7A98E91D1C8E960070CFCA /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A98E81D1C8E960070CFCA /* DemoTests.swift */; };
-		5E7A98F51D1C8FE70070CFCA /* AutoScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A98F41D1C8FE70070CFCA /* AutoScrollingView.swift */; };
+		5E7A98F51D1C8FE70070CFCA /* GKAutoScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7A98F41D1C8FE70070CFCA /* GKAutoScrollingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		5E7A98E41D1C8E960070CFCA /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7A98E81D1C8E960070CFCA /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		5E7A98EA1D1C8E960070CFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E7A98F41D1C8FE70070CFCA /* AutoScrollingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoScrollingView.swift; sourceTree = "<group>"; };
+		5E7A98F41D1C8FE70070CFCA /* GKAutoScrollingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKAutoScrollingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 		5E7A98F31D1C8FCE0070CFCA /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5E7A98F41D1C8FE70070CFCA /* AutoScrollingView.swift */,
+				5E7A98F41D1C8FE70070CFCA /* GKAutoScrollingView.swift */,
 			);
 			name = Source;
 			path = ../Source;
@@ -211,7 +211,7 @@
 			files = (
 				5E7A98D61D1C8E960070CFCA /* ViewController.swift in Sources */,
 				5E7A98D41D1C8E960070CFCA /* AppDelegate.swift in Sources */,
-				5E7A98F51D1C8FE70070CFCA /* AutoScrollingView.swift in Sources */,
+				5E7A98F51D1C8FE70070CFCA /* GKAutoScrollingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

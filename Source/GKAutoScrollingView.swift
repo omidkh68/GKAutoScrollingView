@@ -26,14 +26,14 @@ private class ASViewCell: UICollectionViewCell{
 
 //MARK: Protocols
 
-public protocol AutoScrollingViewDataSource: class{
-  func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView)->[UIView]
+public protocol GKAutoScrollingViewDataSource: class{
+  func setAutoScrollingViewDataSource(autoScrollingView: GKAutoScrollingView)->[UIView]
 }
 
-@objc public protocol AutoScrollingViewDelegate: class {
-  optional func autoScrollingView(autoScrollingView: AutoScrollingView, didAutoScroll index: Int)
-  optional func autoScrollingView(autoScrollingView: AutoScrollingView, didSelectItem index: Int)
-  optional func autoScrollingView(autoScrollingView: AutoScrollingView, didChangeStatus status: ScrollingState)
+@objc public protocol GKAutoScrollingViewDelegate: class {
+  optional func autoScrollingView(autoScrollingView: GKAutoScrollingView, didAutoScroll index: Int)
+  optional func autoScrollingView(autoScrollingView: GKAutoScrollingView, didSelectItem index: Int)
+  optional func autoScrollingView(autoScrollingView: GKAutoScrollingView, didChangeStatus status: ScrollingState)
 }
 
 @objc public enum ScrollingState: Int {
@@ -41,11 +41,11 @@ public protocol AutoScrollingViewDataSource: class{
 }
 
 
-@IBDesignable public class AutoScrollingView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate{
+@IBDesignable public class GKAutoScrollingView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate{
   
-  public weak var delegate: AutoScrollingViewDelegate?
+  public weak var delegate: GKAutoScrollingViewDelegate?
   
-  public weak var dataSource: AutoScrollingViewDataSource? {
+  public weak var dataSource: GKAutoScrollingViewDataSource? {
     didSet {
       if let views = dataSource?.setAutoScrollingViewDataSource(self){
         dataSourceViews = views

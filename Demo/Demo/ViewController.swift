@@ -8,15 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrollingViewDelegate {
+
+class ViewController: UIViewController, GKAutoScrollingViewDataSource, GKAutoScrollingViewDelegate {
   
   
   @IBOutlet var imageV: UIImageView!
-  var autoScrollView: AutoScrollingView!
+  var autoScrollView: GKAutoScrollingView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    autoScrollView = AutoScrollingView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
+    autoScrollView = GKAutoScrollingView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
     autoScrollView.dataSource = self
     autoScrollView.delegate = self
     self.view.addSubview(autoScrollView)
@@ -28,7 +29,7 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   func createCustomViews()->[UIView]{
     var array: [UIView] = []
     for index in 0...3 {
-      array.append(CardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300), labelText: "\(index)"))
+     array.append(CardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300), labelText: "\(index)"))
     }
     return array
   }
@@ -42,7 +43,7 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
     }
     return array
   }
-  
+ 
   
   //MARK: IBActions
   
@@ -53,34 +54,35 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   @IBAction func startScrolling(){
     autoScrollView.startScrolling()
   }
-  
+
   
   //MARK: ASView Datasource
-  func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView) -> [UIView] {
+  func setAutoScrollingViewDataSource(autoScrollingView: GKAutoScrollingView) -> [UIView] {
     return createImageViews()
   }
   
   //MAKR: ASView delegates
   
-  func autoScrollingView(autoScrollingView: AutoScrollingView, didSelectItem index: Int) {
+  func autoScrollingView(autoScrollingView: GKAutoScrollingView, didSelectItem index: Int) {
     print("did select")
+
   }
   
-  func autoScrollingView(autoScrollingView: AutoScrollingView, didChangeStatus status: ScrollingState) {
+  func autoScrollingView(autoScrollingView: GKAutoScrollingView, didChangeStatus status: ScrollingState) {
     print(status.rawValue)
   }
   
-  func autoScrollingView(autoScrollingView: AutoScrollingView, didAutoScroll index: Int) {
+  func autoScrollingView(autoScrollingView: GKAutoScrollingView, didAutoScroll index: Int) {
     print("auto scrolling at index ", index)
   }
+  
   
 }
 
 
 class CardView: UIView {
   
-  var label:UILabel
-  
+  var label:UILabel  
   init(frame: CGRect, labelText: String) {
     label               = UILabel()
     label.font          = UIFont.boldSystemFontOfSize(24)
