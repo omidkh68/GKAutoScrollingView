@@ -148,7 +148,8 @@ public protocol AutoScrollingViewDataSource: class{
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ASViewCell", forIndexPath: indexPath) as! ASViewCell
     let view = dataSourceViews[indexPath.row]
     cell.contentView.addSubview(view)
-    
+    addContrains(cell.contentView, subView: view)
+    self.layoutIfNeeded()
     return cell
     
   }
@@ -172,6 +173,15 @@ public protocol AutoScrollingViewDataSource: class{
   public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
   {
     startScrolling()
+  }
+  
+  //HELPERS
+  
+  private func addContrains(superView: UIView, subView: UIView){
+    subView.translatesAutoresizingMaskIntoConstraints = false
+    let views = ["myView" : subView]
+    superView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[myView]|", options:[] , metrics: nil, views: views))
+    superView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[myView]|", options:[] , metrics: nil, views: views))
   }
 
 }
