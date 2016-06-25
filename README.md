@@ -100,7 +100,7 @@ startScrolling()
 Set the interval between `autoScrolling`. Default is `2.0` seconds.
 ```swift 
 public var timerInterval: Double!
-``
+```
 
 
 
