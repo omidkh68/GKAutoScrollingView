@@ -28,7 +28,7 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   func createCustomViews()->[UIView]{
     var array: [UIView] = []
     for index in 0...3 {
-     array.append(CardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300), labelText: "\(index)"))
+      array.append(CardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300), labelText: "\(index)"))
     }
     return array
   }
@@ -42,7 +42,7 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
     }
     return array
   }
- 
+  
   
   //MARK: IBActions
   
@@ -53,7 +53,7 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   @IBAction func startScrolling(){
     autoScrollView.startScrolling()
   }
-
+  
   
   //MARK: ASView Datasource
   func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView) -> [UIView] {
@@ -73,7 +73,6 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   func autoScrollingView(autoScrollingView: AutoScrollingView, didAutoScroll index: Int) {
     print("auto scrolling at index ", index)
   }
-  
   
 }
 
