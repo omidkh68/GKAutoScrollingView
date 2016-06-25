@@ -41,7 +41,7 @@ extension MyViewController: AutoScrollingViewDataSource{
   }
 }
 ```
-4: 
+4: Conform to `AutoScrollingView` `delegate` (all optional)
 ```swift
 extension MyViewController: AutoScrollingViewDelegate{
   func autoScrollingView(autoScrollingView: AutoScrollingView, didSelectItem index: Int) {
@@ -94,6 +94,13 @@ Starts the automation of scrolling (if scrolling is paused)
 ```
 startScrolling()
 ```
+
+### Properties 
+
+Set the interval between `autoScrolling`. Default is `2.0` seconds.
+```swift 
+public var timerInterval: Double!
+``
 
 
 
