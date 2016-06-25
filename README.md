@@ -1,8 +1,24 @@
 # GKAutoScrollingView
+[![codebeat badge](https://codebeat.co/badges/1e08e783-8fb1-485d-9ded-a21c461aef2f)](https://codebeat.co/projects/github-com-gkye-gkautoscrollingview)
+[![Version](https://img.shields.io/cocoapods/v/GKAutoScrollingView.svg?style=flat)](http://cocoapods.org/pods/GKAutoScrollingView)
+[![License](https://img.shields.io/cocoapods/l/GKAutoScrollingView.svg?style=flat)](http://cocoapods.org/pods/GKAutoScrollingView)
+[![Platform](https://img.shields.io/cocoapods/p/GKAutoScrollingView.svg?style=flat)](http://cocoapods.org/pods/GKAutoScrollingView)
+
 A customizable, easy to use infinite scroll view similar to the App Store banner.
 
 ![Demo](https://raw.githubusercontent.com/gkye/GKAutoScrollingView/master/demo.gif)
 
+## Installation
+
+GKAutoScrollingView is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+```ruby
+pod "GKAutoScrollingView"
+```
+
+## Example
+
+Check out the demo.
 
 # Usage
 
@@ -101,6 +117,9 @@ Set the interval between `autoScrolling`. Default is `2.0` seconds.
 ```swift 
 public var timerInterval: Double!
 ```
+## License
+
+GKAutoScrollingView is available under the MIT license. See the LICENSE file for more info.
 
 
 
