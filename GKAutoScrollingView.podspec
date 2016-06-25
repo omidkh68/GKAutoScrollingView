@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GKAutoScrollingView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A customizable, easy to use infinite scroll view similar to the App Store banner.'
 
   s.description      = 'A customizable, easy to use infinite scroll view similar to the App Store banner. GKAutoScrollingView offers numerous protocols and properties for customization.'
