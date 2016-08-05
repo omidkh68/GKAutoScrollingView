@@ -14,7 +14,6 @@ class ViewController: UIViewController, GKAutoScrollingViewDataSource, GKAutoScr
   
   @IBOutlet var imageV: UIImageView!
   var autoScrollView: GKAutoScrollingView!
-  var dataSource = [UIImageView]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,28 +22,7 @@ class ViewController: UIViewController, GKAutoScrollingViewDataSource, GKAutoScr
     autoScrollView.delegate = self
     self.view.addSubview(autoScrollView)
   }
-  
-  
-  //MARK: Helpers
-  
-  func createCustomViews()->[UIView]{
-    var array: [UIView] = []
-    for index in 0...3 {
-      array.append(CardView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300), labelText: "\(index)"))
-    }
-    return array
-  }
-  
-  func createImageViews()->[UIImageView]{
-    var array: [UIImageView] = []
-    for index in 0...3 {
-      let img = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
-      img.image = UIImage(named: "\(index)")
-      array.append(img)
-      dataSource.append(img)
-    }
-    return array
-  }
+
   
   
   //MARK: IBActions
@@ -58,15 +36,18 @@ class ViewController: UIViewController, GKAutoScrollingViewDataSource, GKAutoScr
   }
   
   @IBAction func reloadData(){
-    dataSource.append(UIImageView(image: UIImage(named: "screenshot")))
     autoScrollView.reloadData()
   }
-  
-  
+    
   //MARK: ASView Datasource
-  func setAutoScrollingViewDataSource(autoScrollingView: GKAutoScrollingView) -> [UIView] {
-    _ = createImageViews()
-    return dataSource
+
+  func autoScrollingViewNumberOfViews(autoScrollView: GKAutoScrollingView) -> Int {
+    return 4
+  }
+  
+  func autoScrollingView(autoScrollView: GKAutoScrollingView, viewForIndex index: Int) -> UIView {
+    let img: UIImageView = UIImageView(image: UIImage(named: "\(index)"))
+    return img
   }
   
   //MAKR: ASView delegates

@@ -27,7 +27,8 @@ private class ASViewCell: UICollectionViewCell{
 //MARK: Protocols
 
 public protocol GKAutoScrollingViewDataSource: class{
-  func setAutoScrollingViewDataSource(autoScrollingView: GKAutoScrollingView)->[UIView]
+  func autoScrollingView(autoScrollView: GKAutoScrollingView, viewForIndex index: Int)->UIView
+  func autoScrollingViewNumberOfViews(autoScrollView: GKAutoScrollingView)->Int
 }
 
 @objc public protocol GKAutoScrollingViewDelegate: class {
@@ -45,21 +46,9 @@ public protocol GKAutoScrollingViewDataSource: class{
   
   public weak var delegate: GKAutoScrollingViewDelegate?
   
-  public weak var dataSource: GKAutoScrollingViewDataSource? {
-    didSet {
-      setDataSource()
-    }
-  }
-  
-  private func setDataSource(){
-    if let views = dataSource?.setAutoScrollingViewDataSource(self){
-      dataSourceViews = views
-      collectionView.reloadData()
-    }
-  }
+  public weak var dataSource: GKAutoScrollingViewDataSource?
   
   //MARK: private
-  private var dataSourceViews = [UIView]()
   
   private var timer = NSTimer()
   private var scrollTimer: NSTimer!
@@ -115,7 +104,6 @@ public protocol GKAutoScrollingViewDataSource: class{
     currentIndex = 0
     let index = NSIndexPath(forItem: 0, inSection: 0)
     collectionView.scrollToItemAtIndexPath(index, atScrollPosition: .None, animated: true)
-    setDataSource()
   }
   
   
@@ -128,7 +116,7 @@ public protocol GKAutoScrollingViewDataSource: class{
     collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: true)
     delegate?.autoScrollingView?(self, didAutoScroll: currentIndex)
     currentIndex += 1
-    if currentIndex == dataSourceViews.count{
+    if currentIndex == dataSource?.autoScrollingViewNumberOfViews(self){
       currentIndex = 0
     }
   }
@@ -152,15 +140,19 @@ public protocol GKAutoScrollingViewDataSource: class{
   //MARK: CollectionView DataSource
   
   public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return dataSourceViews.count
+    if let count = dataSource?.autoScrollingViewNumberOfViews(self){
+      return count
+    }
+    return 0
   }
   
   public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ASViewCell", forIndexPath: indexPath) as! ASViewCell
-    let view = dataSourceViews[indexPath.row]
-    cell.contentView.addSubview(view)
-    addContrains(cell.contentView, subView: view)
-    self.layoutIfNeeded()
+    if let view = dataSource?.autoScrollingView(self, viewForIndex: indexPath.row){
+      cell.contentView.addSubview(view)
+      addContrains(cell.contentView, subView: view)
+      self.layoutIfNeeded()
+    }
     return cell
     
   }
