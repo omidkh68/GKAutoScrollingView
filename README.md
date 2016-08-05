@@ -42,18 +42,13 @@ class ViewController: UIViewController, AutoScrollingViewDataSource, AutoScrolli
   3:  Conform to `AutoScrollingView` `dataSource`  
 ```swift
 extension MyViewController: AutoScrollingViewDataSource{
-  func createImageViews()->[UIImageView]{
-    var array: [UIImageView] = []
-    for index in 0...3 {
-      let img = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300))
-      img.image = UIImage(named: "\(index)")
-      array.append(img)
-    }
-    return array
+  func autoScrollingViewNumberOfViews(autoScrollView: GKAutoScrollingView) -> Int {
+    return 4
   }
   
-  func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView) -> [UIView] {
-    return createImageViews()
+  func autoScrollingView(autoScrollView: GKAutoScrollingView, viewForIndex index: Int) -> UIView {
+    let img: UIImageView = UIImageView(image: UIImage(named: "\(index)"))
+    return img
   }
 }
 ```
@@ -77,11 +72,14 @@ extension MyViewController: AutoScrollingViewDelegate{
 # Protocols
 
 ### DataSource
-Return an array of `UIView's` to be used within the `ScrollView`
+Return an `UIView` to be used at the current index 
 ```swift
-  func setAutoScrollingViewDataSource(autoScrollingView: AutoScrollingView)->[UIView]
+  func autoScrollingView(autoScrollView: GKAutoScrollingView, viewForIndex index: Int)->UIView
 ```
-
+Set number of `UIView`'s within `GKAutoScrollingView`
+```swift
+  func autoScrollingViewNumberOfViews(autoScrollView: GKAutoScrollingView)->Int
+```
 ### Delegate
 
 Returns the index of the selected view
